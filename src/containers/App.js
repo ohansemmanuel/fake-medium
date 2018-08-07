@@ -35,15 +35,24 @@ class App extends Component {
           <Clap countTotal={countTotal} />
         </aside>
         <main>
-          <Article title={title} subtitle={subtitle} paragraphs={paragraphs} />
+          {this.props.isLoadingData ? (
+            "Loading . . ."
+          ) : (
+            <Article
+              title={title}
+              subtitle={subtitle}
+              paragraphs={paragraphs}
+            />
+          )}
         </main>
       </StyledApp>
     );
   }
 }
 
-const mapStateToProps = ({ data = {} }) => ({
-  data
+const mapStateToProps = ({ data = {}, isLoadingData = false }) => ({
+  data,
+  isLoadingData
 });
 export default connect(
   mapStateToProps,
