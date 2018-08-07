@@ -26,3 +26,5 @@
 ```
 
 Api endpoint: `https://api.myjson.com/bins/19dtxc`
+
+Here's [how I built the Medium Clap clone](https://medium.freecodecamp.org/how-i-re-built-the-medium-clap-effect-and-what-i-got-out-of-the-experiment-991672995fdf)
