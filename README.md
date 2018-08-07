@@ -28,3 +28,15 @@
 Api endpoint: `https://api.myjson.com/bins/19dtxc`
 
 Here's [how I built the Medium Clap clone](https://medium.freecodecamp.org/how-i-re-built-the-medium-clap-effect-and-what-i-got-out-of-the-experiment-991672995fdf)
+
+To run app:
+
+```
+  1. git clone https://github.com/ohansemmanuel/fake-medium.git
+
+  2. cd fake-medium
+
+  3. yarn install
+
+  4. yarn run start
+```
