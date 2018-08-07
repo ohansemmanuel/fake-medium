@@ -1,3 +1,5 @@
+![simple medium page](https://i.imgur.com/vYaOyfP.gif)
+
 ```js
   {
   "numberOfRecommends": 1900,
