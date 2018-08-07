@@ -27,13 +27,15 @@ class App extends Component {
     this.props.fetchArticleDetails();
   }
   render() {
+    const { title, subtitle, paragraphs } = this.props.data;
+    const countTotal = this.props.data.numberOfRecommends;
     return (
       <StyledApp>
         <aside>
-          <Clap />
+          <Clap countTotal={countTotal} />
         </aside>
         <main>
-          <Article />
+          <Article title={title} subtitle={subtitle} paragraphs={paragraphs} />
         </main>
       </StyledApp>
     );

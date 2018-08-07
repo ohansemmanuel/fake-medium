@@ -26,7 +26,9 @@ const Article = ({ title = "", subtitle = "", paragraphs = [] }) => {
     <StyledArticle>
       <h1>{title}</h1>
       <h4>{subtitle}</h4>
-      {paragraphs.map(paragraph => <p>{paragraph.text}</p>)}
+      {paragraphs.map(paragraph => (
+        <p key={paragraph.text}>{paragraph.text}</p>
+      ))}
     </StyledArticle>
   );
 };
