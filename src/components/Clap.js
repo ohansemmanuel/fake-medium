@@ -8,7 +8,8 @@ class Clap extends React.Component {
     super(props);
     this.state = {
       count: 0,
-      countTotal: this._generateRandomNumber(500, 10000),
+      countTotal:
+        this.props.countTotal || this._generateRandomNumber(500, 10000),
       isClicked: false
     };
     this._handleClick = this._handleClick.bind(this);

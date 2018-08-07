@@ -1,7 +1,9 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import styled from "styled-components";
 import Article from "../components/Article";
 import Clap from "../components/Clap";
+import { fetchArticleDetails } from "../actions";
 
 const StyledApp = styled.div`
   min-height: 100vh;
@@ -21,6 +23,9 @@ const StyledApp = styled.div`
 
 class App extends Component {
   state = {};
+  componentDidMount() {
+    this.props.fetchArticleDetails();
+  }
   render() {
     return (
       <StyledApp>
@@ -35,4 +40,12 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = ({ data = {} }) => ({
+  data
+});
+export default connect(
+  mapStateToProps,
+  {
+    fetchArticleDetails
+  }
+)(App);
