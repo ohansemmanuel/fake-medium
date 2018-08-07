@@ -1,3 +1,4 @@
+import React from "react";
 import styled from "styled-components";
 
 const StyledArticle = styled.div`
@@ -5,11 +6,13 @@ const StyledArticle = styled.div`
     font-weight: 700;
     font-size: 36px;
     color: #000000;
+    margin: 0;
   }
   h4 {
     font-weight: 700;
     font-size: 20px;
     color: #000000;
+    margin: 0.5rem 0 4rem 0;
   }
   p {
     font-weight: 300;
@@ -18,7 +21,7 @@ const StyledArticle = styled.div`
   }
 `;
 
-const Article = ({ title, subtitle, paragraphs }) => {
+const Article = ({ title = "", subtitle = "", paragraphs = [] }) => {
   return (
     <StyledArticle>
       <h1>{title}</h1>

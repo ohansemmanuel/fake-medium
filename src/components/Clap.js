@@ -1,5 +1,7 @@
 // Read how I built this here: https://bit.ly/2HdyhcR
+import React from "react";
 import mojs from "mo-js";
+import "./Clap.css";
 
 class Clap extends React.Component {
   constructor(props) {
