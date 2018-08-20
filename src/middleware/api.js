@@ -3,11 +3,6 @@ import axios from "axios";
 import { API } from "../actions/types";
 import { accessDenied, apiError, apiStart, apiEnd } from "../actions/api";
 
-const BASE_URL = process.env.REACT_APP_BASE_URL || "";
-
-const defaultHeaders = {};
-let headers = { ...defaultHeaders };
-
 const apiMiddleware = ({ dispatch }) => next => action => {
   next(action);
 
@@ -21,23 +16,14 @@ const apiMiddleware = ({ dispatch }) => next => action => {
     onSuccess,
     onFailure,
     label,
-    headersOverride
+    headers
   } = action.payload;
   const dataOrParams = ["GET", "DELETE"].includes(method) ? "params" : "data";
 
-  if (accessToken) {
-    headers = {
-      ...headers,
-      Authorization: `Bearer ${accessToken}`
-    };
-  }
-
-  if (headersOverride) {
-    headers = {
-      ...headers,
-      ...headersOverride
-    };
-  }
+  // axios default configs
+  axios.defaults.baseURL = process.env.REACT_APP_BASE_URL || "";
+  axios.defaults.headers.common["Content-Type"] = "application/json";
+  axios.defaults.headers.common["Authorization"] = `Bearer ${accessToken}`;
 
   if (label) {
     dispatch(apiStart(label));
@@ -45,7 +31,7 @@ const apiMiddleware = ({ dispatch }) => next => action => {
 
   axios
     .request({
-      url: `${BASE_URL}${url}`,
+      url,
       method,
       headers,
       [dataOrParams]: data
