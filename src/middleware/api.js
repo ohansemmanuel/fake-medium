@@ -51,20 +51,19 @@ const apiMiddleware = ({ dispatch }) => next => action => {
       [dataOrParams]: data
     })
     .then(({ data }) => {
-      if (label) {
-        dispatch(apiEnd(label));
-      }
       dispatch(onSuccess(data));
     })
     .catch(error => {
-      if (label) {
-        dispatch(apiEnd(label));
-      }
       dispatch(apiError(error));
       dispatch(onFailure(error));
 
       if (error.response && error.response.status === 403) {
         dispatch(accessDenied(window.location.pathname));
+      }
+    })
+    .finally(() => {
+      if (label) {
+        dispatch(apiEnd(label));
       }
     });
 };
