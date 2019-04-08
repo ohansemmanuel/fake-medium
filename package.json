@@ -5,8 +5,8 @@
   "dependencies": {
     "axios": "^0.18.0",
     "mo-js": "^0.288.2",
-    "react": "^16.4.2",
-    "react-dom": "^16.4.2",
+    "react": "16.8.6",
+    "react-dom": "16.8.6",
     "react-redux": "^5.0.7",
     "react-scripts": "1.1.4",
     "redux": "^4.0.0",
