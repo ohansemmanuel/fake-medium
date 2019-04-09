@@ -4,7 +4,7 @@ export function fetchArticleDetails() {
   return apiAction({
     url: "https://api.myjson.com/bins/19dtxc",
     onSuccess: setArticleDetails,
-    onFailure: console.log("Error occured loading articles"),
+    onFailure: () => console.log("Error occured loading articles"),
     label: FETCH_ARTICLE_DETAILS
   });
 }
